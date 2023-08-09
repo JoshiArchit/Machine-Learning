@@ -30,7 +30,7 @@ def irisDataSet():
     return data_table
 
 
-def trainLinearClassifier(dataset):
+def trainLinearClassifier(trainFeatures, trainLabels):
     """
     Dataset with only features to train linear classifier.
 
@@ -38,7 +38,7 @@ def trainLinearClassifier(dataset):
     :return: classifier
     """
     print("Inside Classifier")
-    print(dataset)
+
 
 
 def main():
@@ -50,7 +50,7 @@ def main():
                                                         random_state=SEED)
 
     # Train classifier
-
+    trainLinearClassifier(X_train, y_train)
 
 
 if __name__ == "__main__":
