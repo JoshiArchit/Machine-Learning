@@ -104,17 +104,19 @@ def stoppingCriteria(data, depth):
     a. There are less than 15 data points in a node, OR
     b. Depth is over 20.
 
+    NOTE - Adjust stopping criterias to experiment with depth of the tree
+
     :param data: data set for this node
     :param depth: depth of this node
     :return: None
     """
-    # Stopping criteria (a) and (c)
-    if len(data) <= 25 or depth > 20:
+    # Stopping criteria (a) and (b)
+    if len(data) <= 10 or depth > 20:
         return True
 
     class_counts = pd.value_counts(data['Diagnosis'])
     percentages = class_counts / len(data)
-    if max(percentages) >= 0.9:
+    if max(percentages) >= 0.95:
         return True
     # Keep recursing
     return False
